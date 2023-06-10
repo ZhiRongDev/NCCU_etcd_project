@@ -1,0 +1,9 @@
+[0;1;32m●[0m grafana-server.service - Grafana instance
+     Loaded: loaded (/lib/systemd/system/grafana-server.service; disabled; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Sat 2023-06-10 14:33:54 CST; 52min ago
+       Docs: http://docs.grafana.org
+   Main PID: 4164 (grafana)
+      Tasks: 17 (limit: 9430)
+     Memory: 181.3M
+     CGroup: /system.slice/grafana-server.service
+             └─4164 /usr/share/grafana/bin/grafana server --config=/etc/grafana/grafana.ini --pidfile=/run/grafana/grafana-server.pid --packaging=deb cfg:default.paths.logs=/var/log/grafana cfg:default.paths.data=/var/lib/grafana cfg:default.paths.plugins=/var/lib/grafana/plugins cfg:default.paths.provisioning=/etc/grafana/provisioning
