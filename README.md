@@ -1,3 +1,4 @@
 # NCCU_etcd_project
 
-* 使用 ab - Apache HTTP server benchmarking tool 做 http post 壓力測試
+* `Views/` folder is for front end & connect to etcd server for domain ip.
+* `request/` folder is for etcd server testing, with the help of ab - Apache HTTP server benchmarking tool.

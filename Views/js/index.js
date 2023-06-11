@@ -8,51 +8,48 @@ function getRandomElement(arr) {
 }
 
 search_btn.addEventListener('click', function (e) {
-    // console.log(domain_name.value)
-    let data = {
-        Domain: domain_name.value.replace(/\s/g, '')
-    }
-    let options = {
-        method: 'POST',
-        url: 'http://localhost:3000/',
-        data: data
-    }
-    axios(options)
-        .then(function (res) {
-            // console.log(res.data);
-            const IP = res.data;
+    fetch('http://172.20.10.5:50010', {
+        method: "post",
+        headers: {
+            "Content-Type": "text/plain"
+        },
+        body: JSON.stringify({ Domain: domain_name.value.replace(/\s/g, ''), Ip: "" })
+    })
+    .then(function(res) {
+        return res.json();
+    })
+    .then(function (data) {
+        console.log(data);
+        const IP = data.Ip;
 
-            const region = ['ASI', 'USA', 'EUR']
-            const service = ['APP', 'index.html', 'FILE']
-            const ctlPerf = [0, 1, 2]
+        const region = ['ASI', 'USA', 'EUR']
+        const service = ['APP', 'index.html', 'FILE']
+        const ctlPerf = [0, 1, 2]
 
-            let random_region = getRandomElement(region);
-            let random_service = getRandomElement(service);
-            let random_ctlPerf = getRandomElement(ctlPerf);
+        let random_region = getRandomElement(region);
+        let random_service = getRandomElement(service);
+        let random_ctlPerf = getRandomElement(ctlPerf);
 
-            let request_url = `http://${IP}:30001/hdSimu/${random_region}/${random_service}?perf=${random_ctlPerf}`
+        let request_url = `http://172.20.10.2:30001/hdSimu/${random_region}/${random_service}/${IP}?perf=${random_ctlPerf}`
 
-            let str = `
+        let str = `
                 <p>對應 Host IP: ${IP}</p>
-                <p>模擬 request: ${request_url}</p> 
+                <p>模擬 request: ${request_url}</p>
             `;
-            search_result.innerHTML = str;
+        search_result.innerHTML = str;
 
-            // 發模擬 request
-            let options = {
-                method: 'GET',
-                url: request_url
-            }
-            axios(options)
-                .then(function (res) {
-                    console.log(res)
-                })
-                .catch(function (err) {
-                    console.log(err)
-                })
+        // 發模擬 request
+        fetch(request_url, {
+            method: "GET",
+        }).then(function (res) {
+            console.log(res)
+        }).catch(function (err) {
+            console.log(err)
         })
-        .catch(function (err) {
-            console.log(err);
-            search_result.innerHTML = `<p>查無此域名</p>`;
-        })
+
+    })
+    .catch(function (err) {
+        console.log(err);
+        search_result.innerHTML = `<p>查無此域名</p>`;
+    })
 })

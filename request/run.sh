@@ -1,6 +1,6 @@
 # ab - Apache HTTP server benchmarking tool
 # Use & to enable concurrent processing
 
-ab -n 1000 -c 10 -T 'application/json' -p ./post_data/post_1.json http://localhost:3000/ &
-ab -n 1000 -c 10 -T 'application/json' -p ./post_data/post_2.json http://localhost:3000/ &
-ab -n 1000 -c 10 -T 'application/json' -p ./post_data/post_3.json http://localhost:3000/ 
+ab -n 10000 -c 10 -T "text/plain" -p ./post_etcd/post_1.json http://172.20.10.5:50010/ &
+ab -n 10000 -c 10 -T "text/plain" -p ./post_etcd/post_2.json http://172.20.10.5:50011/ &
+ab -n 10000 -c 10 -T "text/plain" -p ./post_etcd/post_3.json http://172.20.10.5:50012/ 
