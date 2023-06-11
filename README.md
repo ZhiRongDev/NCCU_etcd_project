@@ -11,7 +11,7 @@ We have put the source code in `/source` directory, including three main parts o
 
 ## Contributors
 |組員|系級|學號|
-|-|-|-|-|
+|-|-|-|
 |陳偉瑄|資專碩二|110971020|
 |陳亮酉|資科碩二智計組|110753209|
 |蕭喬宇|資科碩一智計組|111753203|
