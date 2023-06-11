@@ -1,0 +1,39 @@
+{
+        "example.com":[{
+                        "ip":"192.1.1.1",
+                        "workload": 0,
+                        "count": 0, 
+                        "ms": 0, 
+                        "node": 0, 
+                        "scores": 100 
+                    
+                },
+                {
+                        "ip":"192.1.1.1",
+                        "workload": 0,
+                        "count": 0, 
+                        "ms": 0, 
+                        "node": 0, 
+                        "scores": 100 
+
+                }]
+        ,
+        "example1.com":[{
+                        "ip":"192.1.1.1",
+                        "workload": 0,
+                        "count": 0, 
+                        "ms": 0, 
+                        "node": 0, 
+                        "scores": 100 
+                },
+               {
+                        "ip":"192.1.1.1",
+                        "workload": 0,
+                        "count": 0, 
+                        "ms": 0, 
+                        "node": 0, 
+                        "scores": 100 
+
+                }]
+        
+}
